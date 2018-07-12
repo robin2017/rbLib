@@ -1,21 +1,32 @@
 # rb-lib
 
-> a lib base element-ui
+> 一个基于element-ui的二次开发库
 
-## Build Setup
+## 安装使用
 
 ``` bash
-# install dependencies
-npm install
+# npm安装
+npm install rb-lib --save-dev
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 完整引入
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+import RbLib from 'rb-lib'
+Vue.use(RbLib)
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 组件
+#### 1、hello测试
+```
+<template>
+    <div id="app">
+        <rb-hello-element></rb-hello-element>
+    </div>
+</template>
+<script>
+    export default {}
+</script>
+```
+![](images/hello.jpg)

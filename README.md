@@ -1,6 +1,6 @@
 # rb-lib
 
-> 一个基于element-ui的二次开发库
+> 一个基于element-ui的二次开发库，需要依赖element-ui库
 
 ## 安装使用
 
@@ -30,3 +30,6 @@ Vue.use(RbLib)
 </script>
 ```
 ![](images/hello.jpg)
+#### 2、插槽布局
+#### 3、图表(基于jq的echarts)
+#### 4、树(基于jq的ztree)

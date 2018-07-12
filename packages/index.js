@@ -1,6 +1,8 @@
 import Hello from './hello/index'
+import HelloElement from './hello-element/index'
 const components = [
-    Hello
+    Hello,
+    HelloElement
 ];
 const install = function (Vue) {
     components.map(component=>{
@@ -13,5 +15,6 @@ if(typeof window !=='undefined'&&window.Vue){
 export default {
     version:'1.0.0',
     install,
-    Hello
+    Hello,
+    HelloElement
 }

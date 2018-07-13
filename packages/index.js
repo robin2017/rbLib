@@ -1,10 +1,12 @@
 import Hello from './hello/index'
 import HelloElement from './hello-element/index'
 import Layout from './layout/index'
+import Charts from './charts/index'
 const components = [
     Hello,
     HelloElement,
-    Layout
+    Layout,
+    Charts
 ];
 const install = function (Vue) {
     components.map(component=>{
@@ -19,5 +21,6 @@ export default {
     install,
     Hello,
     HelloElement,
-    Layout
+    Layout,
+    Charts
 }

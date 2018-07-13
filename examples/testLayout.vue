@@ -1,24 +1,32 @@
 <template>
-    <rb-layout :layout-data="formData">
+    <rb-layout :layout-data="formData" :gutter="10">
         <template slot-scope="scope">
-           {{scope.content.label}}:{{scope.content.value}}
+            <div class="wrap">{{scope.label}}</div>
         </template>
     </rb-layout>
 </template>
-
 <script>
     export default {
         name: "testLayout",
-        data:function () {
+        data: function () {
             return {
-                formData:[
-                    {content:{label:'a',value:'A'},part:3},
-                    {content:{label:'b',value:'B'},part:3},
-                    {content:{label:'c',value:'C'},part:3},
-                    {content:{label:'d',value:'D'},part:3},
+                formData: [
+                    {label: 'a', part: 3},
+                    {label: 'b', part: 3},
+                    {label: 'c', part: 3},
+                    {label: 'd', part: 2},
+                    {label: 'e', part: 2},
                 ]
             }
         }
     }
 </script>
+<style>
+    .wrap {
+        color: white;
+        background-color: gray;
+        width: 100%;
+        margin: 2px;
+    }
+</style>
 

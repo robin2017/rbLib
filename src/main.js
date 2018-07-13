@@ -6,10 +6,16 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+
 import rbLib from '../packages/index'
 Vue.use(rbLib)
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
-
+import labelChild from '../examples/layout/labelChild'
+import chartsChild from '../examples/layout/chartsChild'
+Vue.component('labelChild',labelChild)
+Vue.component('chartsChild',chartsChild)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -17,3 +23,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+

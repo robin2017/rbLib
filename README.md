@@ -1,3 +1,16 @@
+
+<!-- TOC -->
+
+- [rb-lib](#rb-lib)
+    - [安装使用](#安装使用)
+    - [组件](#组件)
+        - [1、hello测试](#1hello测试)
+        - [2、插槽布局](#2插槽布局)
+            - [优点](#优点)
+        - [3、图表(基于echarts)](#3图表基于echarts)
+        - [4、树(基于jq的ztree)](#4树基于jq的ztree)
+
+<!-- /TOC -->
 # rb-lib
 
 > 一个基于element-ui的二次开发库，需要依赖element-ui库

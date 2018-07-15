@@ -1,7 +1,7 @@
 <template>
     <rb-layout :layout-data="formData" :gutter="10">
-        <template slot-scope="scope">
-            <div class="wrap">{{scope.label}}</div>
+        <template slot-scope="props">
+            <div class="wrap">{{props.label}}</div>
         </template>
     </rb-layout>
 </template>

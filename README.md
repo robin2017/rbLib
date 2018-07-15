@@ -48,8 +48,8 @@ Vue.use(RbLib)
 ```
 <template>
     <rb-layout :layout-data="formData" :gutter="10">
-        <template slot-scope="scope">
-            <div class="wrap">{{scope.label}}</div>
+        <template slot-scope="props">
+            <div class="wrap">{{props.label}}</div>
         </template>
     </rb-layout>
 </template>
@@ -95,8 +95,8 @@ Vue.use(RbLib)
                     <span class="item-title">{{item.title}}</span>
                 </div>
                 <rb-layout :layout-data="item.content">
-                    <template slot-scope="scope">
-                      <component :is="scope.componentType" :scope="scope"></component>
+                    <template slot-scope="props">
+                      <component :is="props.componentType" :scope="props"></component>
                     </template>
                 </rb-layout>
             </div>
@@ -143,11 +143,13 @@ Vue.prototype.$echarts = echarts
                         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
                     },
                     yAxis: {},
-                    series: [{
-                        name: '销量',
-                        type: 'bar',
-                        data: [5, 20, 36, 10, 10, 20]
-                    }]
+                    series: [
+                        {
+                            name: '销量',
+                            type: 'bar',
+                            data: [5, 20, 36, 10, 10, 20]
+                        }
+                    ]
                 }
             }
         }
@@ -167,11 +169,11 @@ Vue.prototype.$echarts = echarts
 
 >数据接口
 
-|属性  |类型  |含义 |
+|属性  |说明 |类型  |
 |:---:|:---:|:---:|
-|title|string|标签页的名称 |
-|type|string|内容组件的组件名 |
-|content|string/object|内容组件的props的代理 |
+|title|标签页的名称 |string|
+|type|内容组件的组件名 |string|
+|content|内容组件的props的代理 |string/object|
 > 例子
 ```
 <template>
@@ -203,9 +205,11 @@ Vue.prototype.$echarts = echarts
                                     date: '2016-05-04',
                                     name: '王小虎',
                                     address: '上海市普陀区金沙江路 1517 弄'
-                                }]
+                                }
+                            ]
                         }
-                    }]
+                    }
+                ]
             }
         }
     }

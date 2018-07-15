@@ -18,8 +18,8 @@
     </div>
 </template>
 <script>
-    export default  {
-        name:'RbSlotTabs',
+    export default {
+        name: 'RbSlotTabs',
         props: ['list', 'selected']
     }
 </script>
@@ -35,11 +35,13 @@
         line-height: 0;
         overflow: hidden;
     }
+
     li {
         list-style: none;
         margin: 0;
         padding: 0;
     }
+
     .rb-hd li {
         float: left;
         border: 1px solid #666;
@@ -48,17 +50,21 @@
         text-align: center;
         border-right: none;
     }
+
     .rb-hd li:last-child {
         border-right: 1px solid #666;
     }
+
     .rb-hd .active {
         background: #e85b4b;
         color: #fff;
         font-weight: bold;
     }
+
     .rb-bd .active {
         display: block
     }
+
     .rb-bd {
         border: 1px solid gray;
         width: 600px;

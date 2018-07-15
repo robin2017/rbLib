@@ -1,7 +1,7 @@
 <template>
     <div class="tab">
         <rb-slot-tabs :list="list"
-                     :selected="selected">
+                      :selected="selected">
             <!--命名插槽1：标签页-->
             <!--命名插槽调用：负责数据处理props:[index,text]-->
             <template slot="title"
@@ -23,38 +23,19 @@
 </template>
 <script>
     import RbSlotTabs from './slot-tabs'
-
     export default {
-        name:'RbTabs',
-        props:{
-            list:{},
-            alive:{type:Boolean,default:false}
-        },
-        components: {
-            RbSlotTabs
+        name: 'RbTabs',
+        props: {
+            list: {},
+            alive: {type: Boolean, default: false}
         },
         data: function () {
             return {
-
                 selected: 0,
-                // list: [
-                //     {
-                //         title: 'tab1',
-                //         type:'comp1',
-                //         content: 'content1'
-                //     },
-                //     {
-                //         title: 'tab2',
-                //         type:'comp2',
-                //         content: 'content2'
-                //     },
-                //     // {
-                //     //     title: 'tab3',
-                //     //     type:'comp1',
-                //     //     content: `content3`
-                //     // }
-                // ]
             }
+        },
+        components: {
+            RbSlotTabs
         },
         methods: {
             change(index) {

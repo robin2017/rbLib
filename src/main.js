@@ -16,6 +16,10 @@ import labelChild from '../examples/layout/labelChild'
 import chartsChild from '../examples/layout/chartsChild'
 Vue.component('labelChild',labelChild)
 Vue.component('chartsChild',chartsChild)
+import comp1 from '../examples/tabs/comp1'
+import comp2 from '../examples/tabs/comp2'
+Vue.component('comp1',comp1);
+Vue.component('comp2', comp2);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

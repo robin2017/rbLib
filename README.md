@@ -117,7 +117,7 @@ Vue.use(RbLib)
 ```
 ![](images/layout2.png)</br>
 #### 3、图表(基于echarts) ####
-> 本组件基于echarts，所以使用前需要安装echarts
+> 本组件基于echarts，所以使用前需要安装.
 + 安装
 ```
 npm install echarts -S
@@ -156,3 +156,98 @@ Vue.prototype.$echarts = echarts
 ```
 ![](images/charts.png)</br>
 #### 4、树(基于jq的ztree)
+#### 5、标签页
+> 属性
+
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|list|数据接口的数组 |array|-|-|
+|alive|是否使用keep-alive |boolean|true/false|false|
+
+
+>数据接口
+
+|属性  |类型  |含义 |
+|:---:|:---:|:---:|
+|title|string|标签页的名称 |
+|type|string|内容组件的组件名 |
+|content|string/object|内容组件的props的代理 |
+> 例子
+```
+<template>
+    <div>
+        <rb-tabs :list="list">
+        </rb-tabs>
+    </div>
+</template>
+<script>
+    export default {
+        data: function () {
+            return {
+                list: [
+                    {
+                        title: 'tab1',
+                        type: 'comp1',
+                        content: 'content1'
+                    },
+                    {
+                        title: 'tab2',
+                        type: 'comp2',
+                        content: {
+                            tableData: [
+                                {
+                                    date: '2016-05-02',
+                                    name: '王小虎',
+                                    address: '上海市普陀区金沙江路 1518 弄'
+                                }, {
+                                    date: '2016-05-04',
+                                    name: '王小虎',
+                                    address: '上海市普陀区金沙江路 1517 弄'
+                                }]
+                        }
+                    }]
+            }
+        }
+    }
+</script>
+```
+```
+//comp1.vue
+<template>
+    <div>{{content}}</div>
+</template>
+<script>
+    export default {
+        props: ['content']
+    }
+</script>
+```
+```
+//comp2.vue
+<template>
+    <el-table
+            :data="content.tableData"
+            style="width: 100%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+    </el-table>
+</template>
+<script>
+    export default {
+        props: ['content']
+    }
+</script>
+```
+![](images/tabs.png)

@@ -1,0 +1,37 @@
+{
+  "labelWidth": "100px",
+  "labelPosition": "right",
+  "formItemList": [
+    {
+      "type": "input",
+      "name": "批号",
+      "value": "123",
+      "placeholder": "请输入",
+      "rules": [
+        {
+          "required": true,
+          "message": "不能为空",
+          "trigger": "blur"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "属性",
+      "value":"我",
+      "placeholder": "请选择",
+      "options": [
+        "敌",
+        "我",
+        "不明"
+      ],
+      "rules": [
+        {
+          "required": true,
+          "message": "不能为空",
+          "trigger": "blur"
+        }
+      ]
+    }
+  ]
+}

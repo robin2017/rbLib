@@ -4,14 +4,16 @@ import HelloWorld from '@/components/HelloWorld'
 import testHello from '../../examples/testLayout2'
 import echarts from '../components/testEcharts'
 import test  from '../../examples/testTabs'
+import dynForm from '../components/testDynForm'
+import Index from '../components/Index'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: test
+      name: 'index',
+      component: Index
     },
       {
           path: '/hello',
@@ -20,6 +22,10 @@ export default new Router({
       {
           path: '/echarts',
           component: echarts
+      },
+      {
+          path: '/dynForm',
+          component: dynForm
       },
   ]
 })

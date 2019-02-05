@@ -1,7 +1,7 @@
 <template>
     <section class="DynamicForm">
         <el-form v-bind="formConfig" :model="formValue">
-            <el-row :gutter="formConfig.gutter">
+            <el-row :gutter="formConfig.gutter|| 0">
                 <dynamic-form-item v-for="formItemConfig in formConfig.formItemList"
                                    :key="formItemConfig.name"
                                    :itemConfig="formItemConfig"
@@ -14,11 +14,12 @@
 </template>
 <script>
     import DynamicFormItem from './DynamicFormItem'
+
     export default {
         name: "RbDynForm",
         props: {
             formConfig: {type: Object},
-            formValue: {type:Object}
+            formValue: {type: Object}
         },
         components: {
             DynamicFormItem

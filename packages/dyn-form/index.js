@@ -4,4 +4,4 @@ RbDynForm.install = function(Vue) {
     Vue.component(RbDynForm.name, RbDynForm);
 };
 
-export default RbHello;
+export default RbDynForm;

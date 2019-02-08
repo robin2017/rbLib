@@ -1,15 +1,12 @@
 <template>
     <section class="testTree">
+        <h4>RbTree组件示例</h4>
         <rb-tree ztreeID="ztreeID"
-                 :ztreeData="ztreeData"
-                 :isCollapse=true></rb-tree>
+                 :ztreeData="ztreeData"></rb-tree>
     </section>
 </template>
-
 <script>
     export default {
-        name: "testTree",
-        props: {},
         data: function () {
             return {
                 ztreeData: [
@@ -19,29 +16,8 @@
                             {name: 'c'}
                         ]
                     }
-                ],
-                ztreeSetting: {
-                    data: {
-                        simpleData: {
-                            enable: false,
-                        }
-                    },
-                    view: {
-                        showIcon: false
-                    },
-                    callback: {}
-                },
+                ]
             }
-        },
-        computed: {},
-        watch: {},
-        methods: {},
-        mounted() {
         }
     }
 </script>
-
-<style>
-    .testTree {
-    }
-</style>

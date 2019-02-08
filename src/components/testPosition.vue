@@ -1,25 +1,25 @@
 <template>
     <section class="testPosition">
-        <div style="border:1px solid #999">
+        <div style="border:1px solid #999;padding:20px;width:190px;padding-top:0">
             <h4>初始值：</h4>
-            <div><label>经度：</label>
+            <div><label style=" width: 81px;display: inline-block;">经度：</label>
                 <el-input v-model="jdValue" style="width:100px;"></el-input>
             </div>
 
             <div>
-                <label>纬度：</label>
+                <label style=" width: 81px;display: inline-block;">纬度：</label>
                 <el-input v-model="wdValue" style="width:100px;"></el-input>
             </div>
             <div>
                 <label>输入格式：</label>
-                <el-select v-model="inputSel">
+                <el-select v-model="inputSel" style="width:100px">
                     <el-option value="string">string</el-option>
                     <el-option value="number">number</el-option>
                 </el-select>
             </div>
             <div>
                 <label>输出格式：</label>
-                <el-select v-model="outputSel">
+                <el-select v-model="outputSel" style="width:100px">
                     <el-option value="string">string</el-option>
                     <el-option value="number">number</el-option>
                 </el-select>
@@ -27,7 +27,9 @@
 
         </div>
 
-        <rb-position @input="handleValue" :format-output="outputSel" :format-input="inputSel"
+        <rb-position @input="handleValue"
+                     :format-output="outputSel"
+                     :format-input="inputSel"
                      :value="value"></rb-position>
     </section>
 </template>

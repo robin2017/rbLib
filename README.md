@@ -15,21 +15,27 @@
 
 ## 指南
 
+#### 1、npm安装 ####
+使用 npm 的方式安装，可以和 webpack 打包工具配合使用。
 ``` bash
-# npm安装
 npm install rb-lib --save-dev
-
-# 组件库引入
+```
+#### 2、组件库引入 ####
+在 main.js 中写入以下内容
+``` bash
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 import RbLib from 'rb-lib'
 Vue.use(RbLib)
-
-#依赖导入
-本组件库的图表/树组件依赖与echarts/ztree
+```
+#### 3、依赖导入 ####
+本组件库的图表/树组件依赖于echarts/ztree
+``` bash
 npm install --D echarts ztree
+```
 同时需要在webpack.dev.config.js中添加如下代码
+``` bash
 plugins: [
     new webpack.ProvidePlugin({
     jQuery: "jquery",
@@ -40,47 +46,82 @@ plugins: [
 ## 组件
 
 #### 1、图表(基于echarts) ####
-> 本组件基于echarts，使用前需要安装.
-+ 安装
-```
-npm install echarts -S
-```
-+ main.js中全局引入
-```
-import echarts from 'echarts'
-Vue.prototype.$echarts = echarts
-```
-> 例子
+> 通过vue组件的方式封装echarts，具体配置参见echarts官网
+
+##### 示例 #####
 ```
 <template>
-    <rb-charts chartsId="chartsId" :height="200" :width="300" :options="options"></rb-charts>
+    <rb-charts chartsId="chartsId"
+               :options="options"></rb-charts>
 </template>
 <script>
     export default {
         data() {
             return {
                 options: {
-                    title: {text: 'RbCharts演示'},
+                    title: {text: 'RbCharts组件示例'},
                     tooltip: {},
                     xAxis: {
                         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
                     },
                     yAxis: {},
-                    series: [
-                        {
-                            name: '销量',
-                            type: 'bar',
-                            data: [5, 20, 36, 10, 10, 20]
-                        }
-                    ]
+                    series: [{
+                        name: '销量',
+                        type: 'bar',
+                        data: [5, 20, 36, 10, 10, 20]
+                    }]
                 }
             }
         }
     }
 </script>
 ```
-![](images/charts.png)</br>
+![](images/rbcharts.png)</br>
+##### Attributes #####
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|chartsId|图表唯一标识 |string|-|必填|
+|options|echarts的配置项|object|-|必填|
+|width|图表宽度|number|-|400|
+|height|图表高度|number|-|300|
 #### 2、树(基于jq的ztree)
+> 通过vue组件的方式封装ztree，具体配置参见ztree官网
+
+##### 示例 #####
+```
+<template>
+    <section class="testTree">
+        <h4>RbTree组件示例</h4>
+        <rb-tree ztreeID="ztreeID"
+                 :ztreeData="ztreeData"></rb-tree>
+    </section>
+</template>
+<script>
+    export default {
+        data: function () {
+            return {
+                ztreeData: [
+                    {
+                        name: 'a', children: [
+                            {name: 'b'},
+                            {name: 'c'}
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+</script>
+
+```
+![](images/rbtree.png)</br>
+##### Attributes #####
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|ztreeID|ztree唯一标识 |string|-|必填|
+|ztreeSetting|ztree配置 |object|-|-|
+|ztreeData|ztree数据 |array|-|必填|
+|isCollapse|是否展开 |boolean|true/false|false|
 #### 3、标签页
 > 属性
 
@@ -178,3 +219,30 @@ Vue.prototype.$echarts = echarts
 </script>
 ```
 ![](images/tabs.png)
+#### 4、经纬度显示 ####
+> + 提供经纬度的显示和输入
+> + 自动校验输入范围
+> + 支持字符串和数值输入
+##### 示例 #####
+```
+      <rb-position @input="handleValue"
+                   :value="value"></rb-position>
+```
+![](images/rbposition.png)</br>
+##### Attributes #####
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|value|经纬度的值，长度为2的数组 |Array|-|-|
+|formatInput|输入格式 |string|string/number|number|
+|formatOutput|输出格式 |string|string/number|number|
+|disabled|是否可编辑 |boolean|true/false|false|
+|part|经纬度部分显示 |string|jd/wd/jwd|jwd|
+|hideHeader|隐藏标题头 |boolean|true/false|false|
+|unitChn|单位使用中文 |boolean|true/false|false|
+
+#### 5、动态表单 ####
+> + 支持静态表单的功能
+> + 通过配置控制表单项，而不是代码
+> + 基本表单的定义和动态表单组件解耦，可自行定义表单项
+##### 示例 #####
+

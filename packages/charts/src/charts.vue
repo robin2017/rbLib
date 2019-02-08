@@ -7,10 +7,10 @@
     export default {
         name: 'RbCharts',
         props: {
-            chartsId: {required: true},
-            options: {},
-            height: {type: Number, required: true},
-            width: {type: Number, required: true}
+            chartsId: {type:String,required: true},
+            options: {required:true},
+            height: {type: Number, default: 300},
+            width: {type: Number, default: 400}
         },
         data() {
             return {

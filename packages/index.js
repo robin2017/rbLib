@@ -1,19 +1,19 @@
-import Hello from './hello/index'
-
-
 import Charts from './charts/index'
 import Tree from './tree/index'
 import Tabs from './tabs/index'
+import Position from './position/index'
 import DynForm from './dyn-form/index'
+
 import ElInputAdapter from './dyn-form/src/adapter/ElInputAdapter'
 import ElSelectAdapter from './dyn-form/src/adapter/ElSelectAdapter'
 
 const components = [
-    Hello,
-    Tree,
     Charts,
+    Tree,
     Tabs,
+    Position,
     DynForm,
+
     ElInputAdapter,
     ElSelectAdapter
 ];
@@ -29,8 +29,10 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
     version: '1.0.0',
     install,
-    Hello,
 
     Charts,
-    Tabs
+    Tree,
+    Tabs,
+    Position,
+    DynForm
 }

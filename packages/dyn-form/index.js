@@ -1,6 +1,6 @@
 import RbDynForm from './src/DynamicForm'
-/* istanbul ignore next */
-RbDynForm.install = function(Vue) {
+
+RbDynForm.install = function (Vue) {
     Vue.component(RbDynForm.name, RbDynForm);
 };
 

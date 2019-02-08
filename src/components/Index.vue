@@ -13,18 +13,19 @@
         props: {},
         data: function () {
             return {
-                items:[
-                    {name:'动态表单',path:'/dynForm'},
-                    {name:'echarts',path:'/echarts'},
-                    {name:'标签页',path:'/tabs'},
-                    {name:'树',path:'/tree'}
+                items: [
+                    {name: 'echarts', path: '/echarts'},
+                    {name: 'ztree', path: '/tree'},
+                    {name: '标签页', path: '/tabs'},
+                    {name: '经纬度', path: '/position'},
+                    {name: '动态表单', path: '/dynForm'},
                 ]
             }
         },
         computed: {},
         watch: {},
         methods: {
-            goPath:function (path) {
+            goPath: function (path) {
                 this.$router.push(path)
             }
         },

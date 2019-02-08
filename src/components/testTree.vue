@@ -1,9 +1,8 @@
 <template>
     <section class="testTree">
         <rb-tree ztreeID="ztreeID"
-                   :ztreeSetting="ztreeSetting"
-                   :ztreeData="ztreeData"
-                   :isCollapse=true></rb-tree>
+                 :ztreeData="ztreeData"
+                 :isCollapse=true></rb-tree>
     </section>
 </template>
 
@@ -13,11 +12,18 @@
         props: {},
         data: function () {
             return {
-                ztreeData: [{name: 'a', id: 1}],
+                ztreeData: [
+                    {
+                        name: 'a', children: [
+                            {name: 'b'},
+                            {name: 'c'}
+                        ]
+                    }
+                ],
                 ztreeSetting: {
                     data: {
                         simpleData: {
-                            enable: false
+                            enable: false,
                         }
                     },
                     view: {

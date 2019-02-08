@@ -23,6 +23,7 @@
 </template>
 <script>
     import RbSlotTabs from './slot-tabs'
+
     export default {
         name: 'RbTabs',
         props: {

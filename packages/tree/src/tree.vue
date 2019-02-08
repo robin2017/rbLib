@@ -1,9 +1,7 @@
 <template>
-    <section class="tree">
-        <ul :id="ztreeID"
-            class="ztree w100"
-            style="overflow: auto"></ul>
-    </section>
+    <ul :id="ztreeID"
+        class="ztree w100"
+        style="overflow: auto"></ul>
 </template>
 
 <script>
@@ -11,11 +9,11 @@
         name: "RbTree",
         props: {
             ztreeID: {required: true},
-            ztreeSetting: {required: false},
+            ztreeSetting: {required: false,default:()=>{}},
             ztreeData: {required: true},
             isCollapse: {default: false},
             //以下几个参数只在特殊情况下使用
-            initTreeNumber:{type:Number} //这个数变化了，就重新初始化树(这个参数极少情况下使用)
+            initTreeNumber: {type: Number} //这个数变化了，就重新初始化树(这个参数极少情况下使用)
 
         },
         data: function () {
@@ -45,17 +43,18 @@
                 },
                 deep: true
             },
-            initTreeNumber:function () {
+            initTreeNumber: function () {
                 this.initTree();
             },
         },
         methods: {
-            initTree () {
+            initTree() {
                 //附加设置在后面添加的
                 let setting = $.extend(true, this.defaultTreeSetting, this.ztreeSetting);
                 let params = $.extend(true, [], this.ztreeData);
                 //初始化zTree
-                console.log('---ztree0---',$.fn.zTree)
+
+                console.log('ztree root--:', $(this.$el))
                 this.treeObj = $.fn.zTree.init($(this.$el), setting, params);
                 if (this.isCollapse && this.isCollapse == true) {
                     this.treeObj.expandAll(false);
@@ -66,7 +65,6 @@
         },
         mounted() {
             this.initTree()
-
         }
     }
 </script>

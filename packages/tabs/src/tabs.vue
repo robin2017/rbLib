@@ -14,9 +14,9 @@
             <template slot="content"
                       slot-scope="props">
                 <keep-alive v-if="alive">
-                    <component :is="props.type" :content="props.content"></component>
+                    <component :is="props.type" v-bind="props"></component>
                 </keep-alive>
-                <component :is="props.type" :content="props.content" v-else></component>
+                <component :is="props.type" v-bind="props" v-else></component>
             </template>
         </rb-slot-tabs>
     </div>

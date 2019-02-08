@@ -1,12 +1,7 @@
 <template>
     <el-table
-            :data="content.tableData"
+            :data="currentTableData"
             style="width: 100%">
-        <el-table-column
-                prop="date"
-                label="日期"
-                width="180">
-        </el-table-column>
         <el-table-column
                 prop="name"
                 label="姓名"
@@ -20,7 +15,12 @@
 </template>
 <script>
     export default {
-        name:'comp2',
-        props: ['content']
+        name: 'comp2',
+        props: ['tableData'],
+        data() {
+            return {
+                currentTableData: this.tableData
+            }
+        }
     }
 </script>

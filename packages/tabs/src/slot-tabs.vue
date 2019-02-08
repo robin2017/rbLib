@@ -13,7 +13,7 @@
         <div class="rb-bd">
             <slot name="content"
                   :type="list[selected].type"
-                  :content="list[selected].content"></slot>
+                  v-bind="list[selected]"></slot>
         </div>
     </div>
 </template>

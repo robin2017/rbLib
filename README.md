@@ -128,30 +128,23 @@ plugins: [
 |ztreeData|ztree数据 |array|-|必填|
 |isCollapse|是否展开 |boolean|true/false|false|
 #### 3、标签页
-> 属性
-
-|参数  |说明  |类型 |可选值|默认值|
-|:---:|:---:|:---:|:---:|:---:|
-|list|数据接口的数组 |array|-|-|
-|alive|是否使用keep-alive |boolean|true/false|false|
-
-
->数据接口
-
-|属性  |说明 |类型  |
-|:---:|:---:|:---:|
-|title|标签页的名称 |string|
-|type|内容组件的组件名 |string|
-|content|内容组件的props的代理 |string/object|
-> 例子
+> + 通过配置控制标签页，而不是代码
+##### 使用场景 #####
+当标签页中组件类似，且标签页数据较多时，el-tabs标签内代码多且相似，难以维护和调试
+##### 示例 #####
 ```
+//测试代码
 <template>
     <div>
-        <rb-tabs :list="list">
-        </rb-tabs>
+        <rb-tabs :list="list"></rb-tabs>
     </div>
 </template>
 <script>
+    import Vue from 'vue';
+    import comp1 from './comp1'
+    import comp2 from './comp2'
+    Vue.component(comp1.name, comp1)
+    Vue.component(comp2.name, comp2)
     export default {
         data: function () {
             return {
@@ -164,48 +157,37 @@ plugins: [
                     {
                         title: 'tab2',
                         type: 'comp2',
-                        content: {
-                            tableData: [
-                                {
-                                    date: '2016-05-02',
-                                    name: '王小虎',
-                                    address: '上海市普陀区金沙江路 1518 弄'
-                                }, {
-                                    date: '2016-05-04',
-                                    name: '王小虎',
-                                    address: '上海市普陀区金沙江路 1517 弄'
-                                }
-                            ]
-                        }
+                        tableData: [
+                            {
+                                name: '王小虎1',
+                                address: '上海市普陀区金沙江路 1518 弄'
+                            }, {
+                                name: '王小虎2',
+                                address: '上海市普陀区金沙江路 1517 弄'
+                            }
+                        ]
+
                     }
                 ]
             }
         }
     }
 </script>
-```
-```
-//comp1.vue
+//组件1
 <template>
     <div>{{content}}</div>
 </template>
 <script>
     export default {
+        name: 'comp1',
         props: ['content']
     }
 </script>
-```
-```
-//comp2.vue
+//组件2
 <template>
     <el-table
-            :data="content.tableData"
+            :data="currentTableData"
             style="width: 100%">
-        <el-table-column
-                prop="date"
-                label="日期"
-                width="180">
-        </el-table-column>
         <el-table-column
                 prop="name"
                 label="姓名"
@@ -219,11 +201,28 @@ plugins: [
 </template>
 <script>
     export default {
-        props: ['content']
+        name: 'comp2',
+        props: ['tableData'],
+        data() {
+            return {
+                currentTableData: this.tableData
+            }
+        }
     }
 </script>
 ```
-![](images/tabs.png)
+![](images/rbtabs.png)</br>
+##### Attributes #####
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|list|各个组件配置和数据 |array|-|-|
+|alive|是否使用keep-alive |boolean|true/false|false|
+##### Item Attributes #####
+|属性  |说明 |类型  |
+|:---:|:---:|:---:|
+|title|标签页的名称 |string|
+|type|内容组件的组件名 |string|
+|...|内容组件的props|string/object|
 #### 4、经纬度显示 ####
 > + 提供经纬度的显示和输入
 > + 自动校验输入范围
@@ -249,6 +248,8 @@ plugins: [
 > + 通过配置控制表单项，而不是代码
 > + 基本表单的定义和动态表单组件解耦，可自行定义表单项
 > + 支持整数范围验证
+##### 使用场景 #####
+录入对象信息时，当对象属性信息较多，且属性信息类型不一致，此时如果使用静态表单，则会出现很多相似代码，难以调试及维护
 ##### 示例 #####
 ```
 //form-config.json
@@ -328,3 +329,5 @@ plugins: [
 |:---:|:---:|:---:|:---:|:---:|
 |formConfig|动态表单配置 |object|-|必填|
 |formValue|动态表单数据 |object|-|必填|
+
+ ![](images/test.gif)

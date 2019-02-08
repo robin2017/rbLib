@@ -2,123 +2,45 @@
 <!-- TOC -->
 
 - [rb-lib](#rb-lib)
-    - [安装使用](#安装使用)
+    - [指南](#指南)
     - [组件](#组件)
-        - [1、hello测试](#1hello测试)
-        - [2、插槽布局](#2插槽布局)
-            - [优点](#优点)
-        - [3、图表(基于echarts)](#3图表基于echarts)
-        - [4、树(基于jq的ztree)](#4树基于jq的ztree)
-        - [5、标签页](#5标签页)
+        - [1、图表(基于echarts)](#1图表基于echarts)
+        - [2、树(基于jq的ztree)](#2树基于jq的ztree)
+        - [3、标签页](#3标签页)
 
 <!-- /TOC -->
 # rb-lib
 
-> 一个基于element-ui的二次开发库，需要依赖element-ui库
+> 一个基于vue/elementUi的前端组件库
 
-## 安装使用
+## 指南
 
 ``` bash
 # npm安装
 npm install rb-lib --save-dev
 
-# 完整引入
+# 组件库引入
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 import RbLib from 'rb-lib'
 Vue.use(RbLib)
+
+#依赖导入
+本组件库的图表/树组件依赖与echarts/ztree
+npm install --D echarts ztree
+同时需要在webpack.dev.config.js中添加如下代码
+plugins: [
+    new webpack.ProvidePlugin({
+    jQuery: "jquery",
+    $: "jquery"
+})
 ```
 
 ## 组件
-#### 1、hello测试
-> 例子
-```
-<template>
-    <div id="app">
-        <rb-hello-element></rb-hello-element>
-    </div>
-</template>
-<script>
-    export default {}
-</script>
-```
-![](images/hello.jpg)
-#### 2、插槽布局
-> 例子1
-```
-<template>
-    <rb-layout :layout-data="formData" :gutter="10">
-        <template slot-scope="props">
-            <div class="wrap">{{props.label}}</div>
-        </template>
-    </rb-layout>
-</template>
-<script>
-    export default {
-        name: "testLayout",
-        data: function () {
-            return {
-                formData: [
-                    {label: 'a', part: 3},
-                    {label: 'b', part: 3},
-                    {label: 'c', part: 3},
-                    {label: 'd', part: 2},
-                    {label: 'e', part: 2},
-                ]
-            }
-        }
-    }
-</script>
-<style>
-    .wrap {
-        color: white;
-        background-color: gray;
-        width: 100%;
-        margin: 2px;
-    }
-</style>
-```
-![](images/layout1.png)</br>
-> 例子2：和动态组件一起使用
-###### 优点
-+ 本组件对修改封闭：如果有新的子组件添加，则直接在main.js中进行全局注册，然后通过数据项的componentType属性匹配组件名，则动态使用该组件，无需在本组件中添加。
-+ 本组件的内容由数据控制：如果添加/删除内容项，可以直接在数据中增删
-```
-<template>
-    <div id="armyDetail">
-        <el-card class="box-card">
-            <div slot="header" class="clearfix">
-                <span class="tip">{{tip}}</span>
-            </div>
-            <div v-for="item in slotData">
-                <div style="margin-top:15px;">
-                    <span class="item-title">{{item.title}}</span>
-                </div>
-                <rb-layout :layout-data="item.content">
-                    <template slot-scope="props">
-                      <component :is="props.componentType" :scope="props"></component>
-                    </template>
-                </rb-layout>
-            </div>
-        </el-card>
-    </div>
-</template>
-<script>
-    import {slotData} from './layout/layoutData'
-    export default {
-        data: function () {
-            return {
-                tip: '刘备军团',
-                slotData:slotData
-            }
-        }
-    }
-</script>
-```
-![](images/layout2.png)</br>
-#### 3、图表(基于echarts) ####
-> 本组件基于echarts，所以使用前需要安装.
+
+#### 1、图表(基于echarts) ####
+> 本组件基于echarts，使用前需要安装.
 + 安装
 ```
 npm install echarts -S
@@ -158,8 +80,8 @@ Vue.prototype.$echarts = echarts
 </script>
 ```
 ![](images/charts.png)</br>
-#### 4、树(基于jq的ztree)
-#### 5、标签页
+#### 2、树(基于jq的ztree)
+#### 3、标签页
 > 属性
 
 |参数  |说明  |类型 |可选值|默认值|

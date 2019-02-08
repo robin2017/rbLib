@@ -15,7 +15,9 @@
             return {
                 items:[
                     {name:'动态表单',path:'/dynForm'},
-                    {name:'echarts',path:'/echarts'}
+                    {name:'echarts',path:'/echarts'},
+                    {name:'标签页',path:'/tabs'},
+                    {name:'树',path:'/tree'}
                 ]
             }
         },

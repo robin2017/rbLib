@@ -12,8 +12,12 @@
   },
   "dependencies": {
     "element-ui": "^2.4.3",
+    "jsdom": "^13.2.0",
+    "location": "0.0.1",
+    "navigator": "^1.0.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -33,6 +37,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "jQuery": "^1.7.4",
     "koa": "^2.7.0",
     "koa-static": "^5.0.0",
     "less": "^3.7.1",
@@ -55,7 +60,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "ztree": "^3.5.24"
   },
   "engines": {
     "node": ">= 6.0.0",

@@ -5,6 +5,9 @@
     </div>
 </template>
 <script>
+    import comp2 from './comp2'
+    import Vue from 'vue';
+    Vue.component(comp2.name,comp2)
     export default {
         data: function () {
             return {

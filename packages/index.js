@@ -6,6 +6,8 @@ import DynForm from './dyn-form/index'
 
 import ElInputAdapter from './dyn-form/src/adapter/ElInputAdapter'
 import ElSelectAdapter from './dyn-form/src/adapter/ElSelectAdapter'
+import ElColorPickerAdapter from './dyn-form/src/adapter/ElColorPickerAdapter'
+import ElDatePickerAdapter from './dyn-form/src/adapter/ElDatePickerAdapter'
 
 const components = [
     Charts,
@@ -15,7 +17,9 @@ const components = [
     DynForm,
 
     ElInputAdapter,
-    ElSelectAdapter
+    ElSelectAdapter,
+    ElColorPickerAdapter,
+    ElDatePickerAdapter
 ];
 const install = function (Vue) {
     components.map(component => {
@@ -34,5 +38,10 @@ export default {
     Tree,
     Tabs,
     Position,
-    DynForm
+    DynForm,
+
+    ElInputAdapter,
+    ElSelectAdapter,
+    ElColorPickerAdapter,
+    ElDatePickerAdapter
 }

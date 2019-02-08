@@ -37,7 +37,7 @@
         },
         methods: {
             handleItemConfig: function () {
-                if(this.itemConfig.name===undefined){
+                if (this.itemConfig.name === undefined) {
                     console.error('[DynamicFormItem Error]:动态表单项缺失name属性')
                 }
                 let rules = this.itemConfig.rules;

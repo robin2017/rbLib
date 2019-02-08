@@ -24,7 +24,6 @@
                     <el-option value="number">number</el-option>
                 </el-select>
             </div>
-
         </div>
 
         <rb-position @input="handleValue"

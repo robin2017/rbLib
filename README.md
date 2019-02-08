@@ -3,10 +3,15 @@
 
 - [rb-lib](#rb-lib)
     - [指南](#指南)
+        - [1、npm安装](#1npm安装)
+        - [2、组件库引入](#2组件库引入)
+        - [3、依赖导入](#3依赖导入)
     - [组件](#组件)
         - [1、图表(基于echarts)](#1图表基于echarts)
         - [2、树(基于jq的ztree)](#2树基于jq的ztree)
         - [3、标签页](#3标签页)
+        - [4、经纬度显示](#4经纬度显示)
+        - [5、动态表单](#5动态表单)
 
 <!-- /TOC -->
 # rb-lib
@@ -241,8 +246,85 @@ plugins: [
 |unitChn|单位使用中文 |boolean|true/false|false|
 
 #### 5、动态表单 ####
-> + 支持静态表单的功能
 > + 通过配置控制表单项，而不是代码
 > + 基本表单的定义和动态表单组件解耦，可自行定义表单项
+> + 支持整数范围验证
 ##### 示例 #####
-
+```
+//form-config.json
+{
+  "labelWidth": "100px",
+  "labelPosition": "right",
+  "formItemList": [
+    {
+      "type": "input",
+      "name": "批号",
+      "placeholder": "请输入1000-2000",
+      "rules": [
+        {
+          "validator": "integerRange(1000,2000)"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "属性",
+      "placeholder": "请选择",
+      "options": [
+        "敌",
+        "我",
+        "不明"
+      ],
+      "rules": [
+        {
+          "required": true,
+          "message": "不能为空",
+          "trigger": "blur"
+        }
+      ]
+    },
+    {
+      "name": "经度",
+      "type": "position",
+      "part": "jd",
+      "hideHeader": true
+    },
+    {
+      "name": "纬度",
+      "type": "position",
+      "part": "wd",
+      "hideHeader": true
+    },
+    {
+      "name": "时间",
+      "type": "date-picker",
+      "subtype": "datetime"
+    },
+    {
+      "name": "颜色",
+      "type": "color-picker"
+    }
+  ]
+}
+//form-value.json
+{
+  "批号": "1234",
+  "属性": "敌",
+  "经度": [
+    0,
+    0
+  ],
+  "纬度": [
+    0,
+    0
+  ],
+  "时间": "",
+  "颜色": "#ff0000"
+}
+```
+![](images/rbdynform.png)</br>
+##### Attributes #####
+|参数  |说明  |类型 |可选值|默认值|
+|:---:|:---:|:---:|:---:|:---:|
+|formConfig|动态表单配置 |object|-|必填|
+|formValue|动态表单数据 |object|-|必填|

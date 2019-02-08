@@ -5,20 +5,16 @@
     {
       "type": "input",
       "name": "批号",
-      "value": "123",
-      "placeholder": "请输入",
+      "placeholder": "请输入1000-2000",
       "rules": [
         {
-          "required": true,
-          "message": "不能为空",
-          "trigger": "blur"
+          "validator": "integerRange(1000,2000)"
         }
       ]
     },
     {
       "type": "select",
       "name": "属性",
-      "value":"我",
       "placeholder": "请选择",
       "options": [
         "敌",
@@ -32,6 +28,27 @@
           "trigger": "blur"
         }
       ]
+    },
+    {
+      "name": "经度",
+      "type": "position",
+      "part": "jd",
+      "hideHeader": true
+    },
+    {
+      "name": "纬度",
+      "type": "position",
+      "part": "wd",
+      "hideHeader": true
+    },
+    {
+      "name": "时间",
+      "type": "date-picker",
+      "subtype": "datetime"
+    },
+    {
+      "name": "颜色",
+      "type": "color-picker"
     }
   ]
 }

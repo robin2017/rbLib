@@ -5,7 +5,7 @@ import echarts from '../components/testEcharts'
 import tree from '../components/testTree'
 import tabs from '../components/tabs/testTabs'
 import position from '../components/testPosition'
-import dynForm from '../components/testDynForm'
+import dynForm from '../components/dynForm/testDynForm'
 
 import Index from '../components/Index'
 

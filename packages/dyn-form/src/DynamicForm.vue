@@ -2,10 +2,11 @@
     <section class="DynamicForm">
         <el-form v-bind="formConfig" :model="formValue">
             <el-row :gutter="formConfig.gutter|| 0">
+                <!--itemValue只能从formValue中得到，不能从formConfig中得到，不然就写死了-->
                 <dynamic-form-item v-for="formItemConfig in formConfig.formItemList"
                                    :key="formItemConfig.name"
                                    :itemConfig="formItemConfig"
-                                   :itemValue="formItemConfig.value||formValue[formItemConfig.name]"
+                                   :itemValue="formValue[formItemConfig.name]"
                                    @input="handleInput($event,formItemConfig.name)">
                 </dynamic-form-item>
             </el-row>
@@ -18,8 +19,8 @@
     export default {
         name: "RbDynForm",
         props: {
-            formConfig: {type: Object},
-            formValue: {type: Object}
+            formConfig: {type: Object, required: true},
+            formValue: {type: Object, required: true}
         },
         components: {
             DynamicFormItem

@@ -342,7 +342,7 @@ plugins: [
 ##### 参考 #####
 + 超级表单(https://github.com/bowencool/super-form)
 ## 测试和样例
-> + 本项目没有采用krama/jasmine等测试框架，而是将所有的测试页面放在`src/component`中，用户可以启动工程自行测试
+> + 本项目没有采用krama/jasmine等测试框架，而是将所有的测试页面放在`src/component`中，用户可以启动工程自行测试   </br>
  ![](images/rb-test1.gif)</br>
  ![](images/rb-test2.gif)</br>
  ![](images/rb-test3.gif)</br>

@@ -324,10 +324,25 @@ plugins: [
 }
 ```
 ![](images/rbdynform.png)</br>
+##### 自定义表单项目 #####
+自定义或第三方的表单控件，也可以与动态表单组件一起使用。只要该组件遵循以下的约定：
+> + 提供受控属性 value
+> + 响应input事件
+> + 组件名称为"el-xxx-adapter"形式
+
+##### 表单布局 #####
+每个表单项可以通过配置中添加span属性控制布局，底层实现为el-row/el-col，按照基础的 24 分栏，默认span=12
 ##### Attributes #####
 |参数  |说明  |类型 |可选值|默认值|
 |:---:|:---:|:---:|:---:|:---:|
 |formConfig|动态表单配置 |object|-|必填|
 |formValue|动态表单数据 |object|-|必填|
+##### 参考 #####
++ 超级表单(https://github.com/bowencool/super-form)
+## 测试和样例
+> + 本项目没有采用krama/jasmine等测试框架，而是将所有的测试页面放在`src/component`中，用户可以启动工程自行测试
 
- ![](images/test.gif)
+
+ ![](images/rb-test1.gif)</br>
+ ![](images/rb-test2.gif)</br>
+ ![](images/rb-test3.gif)</br>

@@ -12,6 +12,8 @@
         - [3、标签页](#3标签页)
         - [4、经纬度显示](#4经纬度显示)
         - [5、动态表单](#5动态表单)
+    - [测试和样例](#测试和样例)
+    - [总结](#总结)
 
 <!-- /TOC -->
 # rb-lib
@@ -341,8 +343,11 @@ plugins: [
 + 超级表单(https://github.com/bowencool/super-form)
 ## 测试和样例
 > + 本项目没有采用krama/jasmine等测试框架，而是将所有的测试页面放在`src/component`中，用户可以启动工程自行测试
-
-
  ![](images/rb-test1.gif)</br>
  ![](images/rb-test2.gif)</br>
  ![](images/rb-test3.gif)</br>
+## 总结
+> + 本组件库主要是提取项目中公用的基本组件和业务组件，通过git或npm方式导入工程中，方便项目开发。
+> + tree/charts组件将echarts/ztree两个功能强大的前端库整合到vue框架中，通过vue组件方式调用。
+> + tabs/dynForm组件主要针对标签/表单项过多情况，单一组件太过复杂。首先将组件和具体业务解耦，再通过配置方式将所有具体项进行组合。符合开闭原则和单一原则。
+> + 配置方式整合最核心是vue提供动态组件component，方便根据配置项中组件名和组件props直接生成组件，对比react中则较难实现(参见https://github.com/robin2017/react-dyn-form)
